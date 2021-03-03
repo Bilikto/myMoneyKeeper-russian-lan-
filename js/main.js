@@ -1,33 +1,33 @@
-
+window.addEventListener('DOMContentLoaded', () => {
 
   const start = document.querySelector('.start'),
-        budgetValue = document.querySelector('.budget-value'),
-        dayBudgetValue = document.querySelector('.daybudget-value'),
-        levelValue = document.querySelector('.level-value'),
-        expensesValue = document.querySelector('.expenses-value'),
-        optionalExpensesValue = document.querySelector('.optionalexpenses-value'),
-        incomeValue = document.querySelector('.income-value'),
-        monthsavingsValue = document.querySelector('.monthsavings-value'),
-        yearsavingsValue = document.querySelector('.yearsavings-value'),
-    
-        expensesItemBtn = document.querySelector('.expenses-item-btn'),
-        expensesItem = document.querySelectorAll('.expenses-item'),
-    
-        optionalExpensesBtn = document.querySelector('.optionalexpenses-btn'),
-        optionalExpensesItem = document.getElementsByClassName('optionalexpenses-item'),
-    
-        countBudgetBtn = document.querySelector('.count-budget-btn'),
-    
-        chooseIncome = document.querySelector('.choose-income'),
-    
-        savings = document.querySelector('#savings'),
-        chooseSum = document.querySelector('.choose-sum'),
-        choosePercent = document.querySelector('.choose-percent'),
-    
-        yearValue = document.querySelector('.year-value'),
-        monthValue = document.querySelector('.month-value'),
-        dayValue = document.querySelector('.day-value');
-    
+    budgetValue = document.querySelector('.budget-value'),
+    dayBudgetValue = document.querySelector('.daybudget-value'),
+    levelValue = document.querySelector('.level-value'),
+    expensesValue = document.querySelector('.expenses-value'),
+    optionalExpensesValue = document.querySelector('.optionalexpenses-value'),
+    incomeValue = document.querySelector('.income-value'),
+    monthsavingsValue = document.querySelector('.monthsavings-value'),
+    yearsavingsValue = document.querySelector('.yearsavings-value'),
+
+    expensesItemBtn = document.querySelector('.expenses-item-btn'),
+    expensesItem = document.querySelectorAll('.expenses-item'),
+
+    optionalExpensesBtn = document.querySelector('.optionalexpenses-btn'),
+    optionalExpensesItem = document.getElementsByClassName('optionalexpenses-item'),
+
+    countBudgetBtn = document.querySelector('.count-budget-btn'),
+
+    chooseIncome = document.querySelector('.choose-income'),
+
+    savings = document.querySelector('#savings'),
+    chooseSum = document.querySelector('.choose-sum'),
+    choosePercent = document.querySelector('.choose-percent'),
+
+    yearValue = document.querySelector('.year-value'),
+    monthValue = document.querySelector('.month-value'),
+    dayValue = document.querySelector('.day-value');
+
   let money, time;
 
   let appData = {
@@ -68,7 +68,7 @@
     let sum = 0;
     for (let i = 0; i < expensesItem.length; i++) {
       const a = expensesItem[i].value,
-            b = expensesItem[++i].value;
+        b = expensesItem[++i].value;
 
       if ((typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50) {
         appData.expenses[a] + b;
@@ -125,7 +125,7 @@
   chooseSum.addEventListener('input', () => {
     if (appData.savings == true) {
       const chs = chooseSum.value,
-            prc = choosePercent.value;
+        prc = choosePercent.value;
 
       appData.monthIncome = chs / 100 / 12 * prc;
       appData.yearIncome = chs / 100 * prc;
@@ -138,12 +138,14 @@
   choosePercent.addEventListener('input', () => {
     if (appData.savings == true) {
       const chs = chooseSum.value,
-            prc = choosePercent.value;
+        prc = choosePercent.value;
 
-      appData.monthIncome = Math.floor(chs/100/12 * prc);
-      appData.yearIncome = Math.floor(chs/100 * prc);
+      appData.monthIncome = Math.floor(chs / 100 / 12 * prc);
+      appData.yearIncome = Math.floor(chs / 100 * prc);
 
       monthsavingsValue.textContent = appData.monthIncome.toFixed(1);
       yearsavingsValue.textContent = appData.yearIncome.toFixed(1);
     }
   });
+
+});
