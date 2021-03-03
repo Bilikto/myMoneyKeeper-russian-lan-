@@ -140,8 +140,8 @@
       const chs = chooseSum.value,
             prc = choosePercent.value;
 
-      appData.monthIncome = Math.floor(chs / 100 / 12 * prc);
-      appData.yearIncome = Math.floor(chs / 100 * prc);
+      appData.monthIncome = Math.floor(chs/100/12 * prc);
+      appData.yearIncome = Math.floor(chs/100 * prc);
 
       monthsavingsValue.textContent = appData.monthIncome.toFixed(1);
       yearsavingsValue.textContent = appData.yearIncome.toFixed(1);
