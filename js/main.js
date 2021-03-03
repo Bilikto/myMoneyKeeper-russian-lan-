@@ -32,7 +32,7 @@
 
   let appData = {
     budjet: money,
-    InterDate: time,
+    interDate: time,
     expenses: {},
     optionalExpenses: {},
     income: [],
@@ -44,15 +44,15 @@
   countBudgetBtn.disabled = true;
 
   start.addEventListener('click', () => {
-    time = prompt('Vvedite datu v formate YYYY-MM-DD', '');
-    money = +prompt('Vash budjet na mesyats?', '');
+    time = prompt('Please, enter a current date (YY-MM-DD)', '');
+    money = +prompt('What is your month budjet?', '');
 
     while (isNaN(money) || money == '' || money == null) {
-      money = +prompt('Vash budjet na mesyats?', '');
+      money = +prompt('What is your month budjet?', '');
     }
 
     appData.budjet = money;
-    appData.InterDate = time;
+    appData.interDate = time;
     budgetValue.textContent = money;
 
     yearValue.value = new Date(Date.parse(time)).getFullYear();
@@ -64,12 +64,11 @@
     countBudgetBtn.disabled = false;
   });
 
-
   expensesItemBtn.addEventListener('click', () => {
     let sum = 0;
     for (let i = 0; i < expensesItem.length; i++) {
-      let a = expensesItem[i].value,
-          b = expensesItem[++i].value;
+      const a = expensesItem[i].value,
+            b = expensesItem[++i].value;
 
       if ((typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50) {
         appData.expenses[a] + b;
@@ -125,8 +124,8 @@
 
   chooseSum.addEventListener('input', () => {
     if (appData.savings == true) {
-      let chs = chooseSum.value,
-        prc = choosePercent.value;
+      const chs = chooseSum.value,
+            prc = choosePercent.value;
 
       appData.monthIncome = chs / 100 / 12 * prc;
       appData.yearIncome = chs / 100 * prc;
@@ -138,8 +137,8 @@
 
   choosePercent.addEventListener('input', () => {
     if (appData.savings == true) {
-      let chs = chooseSum.value,
-          prc = choosePercent.value;
+      const chs = chooseSum.value,
+            prc = choosePercent.value;
 
       appData.monthIncome = Math.floor(chs / 100 / 12 * prc);
       appData.yearIncome = Math.floor(chs / 100 * prc);
@@ -148,5 +147,3 @@
       yearsavingsValue.textContent = appData.yearIncome.toFixed(1);
     }
   });
-
- 
