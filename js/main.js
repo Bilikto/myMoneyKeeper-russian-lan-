@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded', () => {
         levelValue.textContent = 'Something is wrong!';
       }
     } else {
-      levelValue.textContent = 'Ooops....! Please inter again!';
+      levelValue.textContent = 'Ooops... Please inter again!';
     }
   });
 
@@ -127,8 +127,8 @@ window.addEventListener('DOMContentLoaded', () => {
       const chs = chooseSum.value,
         prc = choosePercent.value;
 
-      appData.monthIncome = chs / 100 / 12 * prc;
-      appData.yearIncome = chs / 100 * prc;
+      appData.monthIncome = (chs / 100 / 12) * prc;
+      appData.yearIncome = (chs / 100) * prc;
 
       monthsavingsValue.textContent = appData.monthIncome;
       yearsavingsValue.textContent = appData.yearIncome;
